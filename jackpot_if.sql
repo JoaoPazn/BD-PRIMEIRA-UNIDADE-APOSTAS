@@ -16,7 +16,6 @@ CREATE TABLE tigrinho(
     foreign key (userId) references usuario(id),
     id_aposta INT AUTO_INCREMENT,
     PRIMARY KEY(id_aposta),
-    login_usuario VARCHAR(99), -- Para saber qual usuário jogou
     gastotig FLOAT,
     ganhotig FLOAT,
     data_aposta TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -27,7 +26,6 @@ CREATE TABLE roleta(
     foreign key (userId) references usuario(id),
     id_aposta INT AUTO_INCREMENT,
     PRIMARY KEY(id_aposta),
-    login_usuario VARCHAR(99),
     gastorol FLOAT,
     ganhorol FLOAT,
     data_aposta TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -38,7 +36,6 @@ CREATE TABLE esporte(
     foreign key (userId) references usuario(id),
     id_aposta INT AUTO_INCREMENT,
     PRIMARY KEY(id_aposta),
-    login_usuario VARCHAR(99),
     gastoesp FLOAT,
     ganhoesp FLOAT,
     data_aposta TIMESTAMP DEFAULT CURRENT_TIMESTAMP
