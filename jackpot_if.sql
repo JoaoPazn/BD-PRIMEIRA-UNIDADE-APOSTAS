@@ -13,7 +13,7 @@ CREATE TABLE usuario(
 
 CREATE TABLE tigrinho(
 	userId INT NOT NULL,
-    foreign key (userId) references usuario(id),
+    FOREIGN KEY (userId) REFERENCES usuario(id),
     id_aposta INT AUTO_INCREMENT,
     PRIMARY KEY(id_aposta),
     gastotig FLOAT,
@@ -23,7 +23,7 @@ CREATE TABLE tigrinho(
 
 CREATE TABLE roleta(
 	userId INT NOT NULL,
-    foreign key (userId) references usuario(id),
+    FOREIGN KEY (userId) REFERENCES usuario(id),
     id_aposta INT AUTO_INCREMENT,
     PRIMARY KEY(id_aposta),
     gastorol FLOAT,
@@ -33,7 +33,7 @@ CREATE TABLE roleta(
 
 CREATE TABLE esporte(
 	userId INT NOT NULL,
-    foreign key (userId) references usuario(id),
+    FOREIGN KEY (userId) REFERENCES usuario(id),
     id_aposta INT AUTO_INCREMENT,
     PRIMARY KEY(id_aposta),
     gastoesp FLOAT,
@@ -43,7 +43,7 @@ CREATE TABLE esporte(
 
 CREATE TABLE sessoes_usuario (
 	userId INT NOT NULL,
-    foreign key (userId) references usuario(id),
+    FOREIGN KEY (userId) REFERENCES usuario(id),
     id_sessao INT AUTO_INCREMENT,
     PRIMARY KEY(id_sessao),
     data_login TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -53,7 +53,9 @@ CREATE TABLE sessoes_usuario (
 
 CREATE TABLE log_depositos (
 	userId INT NOT NULL,
-    foreign key (userId) references usuario(id),
+    FOREIGN KEY (userId) REFERENCES usuario(id),
+    id_sessao INT,
+    FOREIGN KEY (id_sessao) REFERENCES sessoes_usuario(id_sessao),
     id_deposito INT AUTO_INCREMENT,
     PRIMARY KEY(id_deposito),
     valor_adicionado FLOAT NOT NULL,
